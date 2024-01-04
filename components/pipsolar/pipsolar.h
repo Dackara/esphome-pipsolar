@@ -182,6 +182,10 @@ class Pipsolar : public uart::UARTDevice, public PollingComponent {
   PIPSOLAR_BINARY_SENSOR(warning_high_ac_input_during_bus_soft_start, QPIWS, bool)
   PIPSOLAR_BINARY_SENSOR(warning_battery_equalization, QPIWS, bool)
 
+  // QT values
+  PIPSOLAR_VALUED_TEXT_SENSOR(inverter_date, QT, std::string)
+  PIPSOLAR_VALUED_TEXT_SENSOR(inverter_time, QT, std::string)
+  
   // QBATCD values
   PIPSOLAR_BINARY_SENSOR(discharge_onoff, QBATCD, bool)
   PIPSOLAR_BINARY_SENSOR(discharge_with_standby_onoff, QBATCD, bool)
