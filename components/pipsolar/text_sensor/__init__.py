@@ -16,6 +16,10 @@ CONF_LAST_QPIWS = "last_qpiws"
 CONF_LAST_QT = "last_qt"
 CONF_LAST_QMN = "last_qmn"
 CONF_LAST_QBATCD = "last_qbatcd"
+CONF_LAST_QVFW = "last_qvfw"
+CONF_LAST_QVFW2 = "last_qvfw2"
+CONF_LAST_QVFW3 = "last_qvfw3"
+CONF_LAST_QID = "last_qid"
 
 TYPES = [
     CONF_DEVICE_MODE,
@@ -28,6 +32,10 @@ TYPES = [
     CONF_LAST_QT,
     CONF_LAST_QMN,
     CONF_LAST_QBATCD,
+    CONF_LAST_QVFW,
+    CONF_LAST_QVFW2,
+    CONF_LAST_QVFW3,
+    CONF_LAST_QID,
 #    CONF_LAST_MUCHGC,
 #    CONF_LAST_MCHGC,
 ]
