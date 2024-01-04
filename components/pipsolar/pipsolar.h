@@ -186,18 +186,6 @@ class Pipsolar : public uart::UARTDevice, public PollingComponent {
   PIPSOLAR_BINARY_SENSOR(discharge_with_standby_onoff, QBATCD, bool)
   PIPSOLAR_BINARY_SENSOR(charge_onoff, QBATCD, bool)
 
-  // QVFW values
-  PIPSOLAR_VALUED_TEXT_SENSOR(main_cpu_firmware_version, QVFW, char)
-
-  // QVFW2 values
-  PIPSOLAR_VALUED_TEXT_SENSOR(another_cpu_firmware_version, QVFW2, char)
-
-  // QVFW3 values
-  PIPSOLAR_VALUED_TEXT_SENSOR(remote_panel_firmware_version, QVFW3, char)
-
-  // QID values
-  PIPSOLAR_VALUED_TEXT_SENSOR(serial_number, QID, char)
-
   PIPSOLAR_TEXT_SENSOR(last_qpigs, QPIGS)
   PIPSOLAR_TEXT_SENSOR(last_qpigs2, QPIGS2)
   PIPSOLAR_TEXT_SENSOR(last_qpiri, QPIRI)
