@@ -4,11 +4,16 @@ from esphome.components import sensor
 from esphome.const import (
     CONF_BATTERY_VOLTAGE,
     CONF_BUS_VOLTAGE,
+    DEVICE_CLASS_ENERGY,
+    DEVICE_CLASS_FREQUENCY,
+    DEVICE_CLASS_DURATION,
+    DEVICE_CLASS_SPEED,
     DEVICE_CLASS_CURRENT,
     DEVICE_CLASS_POWER,
     DEVICE_CLASS_TEMPERATURE,
     DEVICE_CLASS_VOLTAGE,
     ICON_CURRENT_AC,
+    ICON_BATTERY,
     UNIT_AMPERE,
     UNIT_CELSIUS,
     UNIT_HERTZ,
@@ -16,6 +21,9 @@ from esphome.const import (
     UNIT_VOLT,
     UNIT_VOLT_AMPS,
     UNIT_WATT,
+    UNIT_WATT_HOURS,
+    UNIT_MINUTE,
+    UNIT_SECOND,
 )
 
 from .. import CONF_PIPSOLAR_ID, PIPSOLAR_COMPONENT_SCHEMA
@@ -78,6 +86,11 @@ CONF_PV2_INPUT_CURRENT = "pv2_input_current"
 CONF_PV2_INPUT_VOLTAGE = "pv2_input_voltage"
 CONF_PV2_CHARGING_POWER = "pv2_charging_power"
 
+# QET sensors
+CONF_TOTAL_PV_GENERATED_ENERGY="total_pv_generated_energy"
+
+# QLT sensors
+CONF_TOTAL_OUTPUT_LOAD_ENERGY="total_output_load_energy"
 
 TYPES = {
     CONF_GRID_RATING_VOLTAGE: sensor.sensor_schema(
@@ -99,6 +112,7 @@ TYPES = {
         unit_of_measurement=UNIT_HERTZ,
         icon=ICON_CURRENT_AC,
         accuracy_decimals=1,
+        device_class=DEVICE_CLASS_FREQUENCY,
     ),
     CONF_AC_OUTPUT_RATING_CURRENT: sensor.sensor_schema(
         unit_of_measurement=UNIT_AMPERE,
@@ -193,6 +207,7 @@ TYPES = {
         unit_of_measurement=UNIT_HERTZ,
         icon=ICON_CURRENT_AC,
         accuracy_decimals=1,
+        device_class=DEVICE_CLASS_FREQUENCY,
     ),
     CONF_AC_OUTPUT_VOLTAGE: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT,
@@ -203,6 +218,7 @@ TYPES = {
         unit_of_measurement=UNIT_HERTZ,
         icon=ICON_CURRENT_AC,
         accuracy_decimals=1,
+        device_class=DEVICE_CLASS_FREQUENCY,
     ),
     CONF_AC_OUTPUT_APPARENT_POWER: sensor.sensor_schema(
         unit_of_measurement=UNIT_VOLT_AMPS,
@@ -288,6 +304,16 @@ TYPES = {
         unit_of_measurement=UNIT_WATT,
         accuracy_decimals=1,
         device_class=DEVICE_CLASS_POWER,
+    ),
+    CONF_TOTAL_PV_GENERATED_ENERGY: sensor.sensor_schema(
+        unit_of_measurement=UNIT_WATT_HOURS,
+        accuracy_decimals=0,
+        device_class=DEVICE_CLASS_ENERGY,
+    ),
+    CONF_TOTAL_OUTPUT_LOAD_ENERGY: sensor.sensor_schema(
+        unit_of_measurement=UNIT_WATT_HOURS,
+        accuracy_decimals=0,
+        device_class=DEVICE_CLASS_ENERGY,
     ),
 }
 
