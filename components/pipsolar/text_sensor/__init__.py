@@ -20,6 +20,12 @@ CONF_LAST_QVFW = "last_qvfw"
 CONF_LAST_QVFW2 = "last_qvfw2"
 CONF_LAST_QVFW3 = "last_qvfw3"
 CONF_LAST_QID = "last_qid"
+CONF_LAST_QET = "last_qet"
+CONF_LAST_QLT = "last_qlt"
+
+# QT sensors
+CONF_DATE = "inverter_date"
+CONF_TIME = "inverter_time"
 
 TYPES = [
     CONF_DEVICE_MODE,
@@ -36,6 +42,10 @@ TYPES = [
     CONF_LAST_QVFW2,
     CONF_LAST_QVFW3,
     CONF_LAST_QID,
+    CONF_LAST_QET,
+    CONF_LAST_QLT,
+    CONF_DATE,
+    CONF_TIME,
 #    CONF_LAST_MUCHGC,
 #    CONF_LAST_MCHGC,
 ]
