@@ -43,9 +43,9 @@ void Pipsolar::loop() {
       if (this->check_incoming_crc_()) {
         // crc ok
         if (this->read_buffer_[1] == 'A' && this->read_buffer_[2] == 'C' && this->read_buffer_[3] == 'K') {
-          ESP_LOGD(TAG, "command successful");
+          ESP_LOGD(TAG, "command successful: %s", this->command_queue_[this->command_queue_position_].c_str());
         } else {
-          ESP_LOGD(TAG, "command not successful");
+          ESP_LOGD(TAG, "command not successful: %s", this->command_queue_[this->command_queue_position_].c_str());
         }
         this->command_queue_[this->command_queue_position_] = std::string("");
         this->command_queue_position_ = (command_queue_position_ + 1) % COMMAND_QUEUE_LENGTH;
@@ -53,6 +53,7 @@ void Pipsolar::loop() {
 
       } else {
         // crc failed
+        ESP_LOGD(TAG, "crc failed: %s", this->command_queue_[this->command_queue_position_].c_str());
         this->command_queue_[this->command_queue_position_] = std::string("");
         this->command_queue_position_ = (command_queue_position_ + 1) % COMMAND_QUEUE_LENGTH;
         this->state_ = STATE_IDLE;
