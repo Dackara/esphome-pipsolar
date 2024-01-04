@@ -447,6 +447,10 @@ void Pipsolar::loop() {
         }
         this->state_ = STATE_IDLE;
         break;
+      case POLLING_QT:
+      case POLLING_QMN:
+        this->state_ = STATE_IDLE;
+        break;
       case POLLING_QBATCD:
         if (this->discharge_onoff_) {
           this->discharge_onoff_->publish_state(value_discharge_onoff_);
@@ -462,8 +466,16 @@ void Pipsolar::loop() {
         }
         this->state_ = STATE_IDLE;
         break;   
-      case POLLING_QT:
-      case POLLING_QMN:
+      case POLLING_QVFW:
+        this->state_ = STATE_IDLE;
+        break;
+      case POLLING_QVFW2:
+        this->state_ = STATE_IDLE;
+        break;
+      case POLLING_QVFW3:
+        this->state_ = STATE_IDLE;
+        break;
+      case POLLING_QID:
         this->state_ = STATE_IDLE;
         break;
     }
