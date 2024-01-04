@@ -24,6 +24,10 @@ enum ENUMPollingCommand {
   POLLING_QT = 6,
   POLLING_QMN = 7,
   POLLING_QBATCD = 8,
+  POLLING_QVFW = 9,
+  POLLING_QVFW2 = 10,
+  POLLING_QVFW3 = 11,
+  POLLING_QID = 12,
 };
 struct PollingCommand {
   uint8_t *command;
@@ -182,6 +186,18 @@ class Pipsolar : public uart::UARTDevice, public PollingComponent {
   PIPSOLAR_BINARY_SENSOR(discharge_with_standby_onoff, QBATCD, bool)
   PIPSOLAR_BINARY_SENSOR(charge_onoff, QBATCD, bool)
 
+  // QVFW values
+  PIPSOLAR_VALUED_TEXT_SENSOR(main_cpu_firmware_version, QVFW, char)
+
+  // QVFW2 values
+  PIPSOLAR_VALUED_TEXT_SENSOR(another_cpu_firmware_version, QVFW2, char)
+
+  // QVFW3 values
+  PIPSOLAR_VALUED_TEXT_SENSOR(remote_panel_firmware_version, QVFW3, char)
+
+  // QID values
+  PIPSOLAR_VALUED_TEXT_SENSOR(serial_number, QID, char)
+
   PIPSOLAR_TEXT_SENSOR(last_qpigs, QPIGS)
   PIPSOLAR_TEXT_SENSOR(last_qpigs2, QPIGS2)
   PIPSOLAR_TEXT_SENSOR(last_qpiri, QPIRI)
@@ -191,6 +207,10 @@ class Pipsolar : public uart::UARTDevice, public PollingComponent {
   PIPSOLAR_TEXT_SENSOR(last_qt, QT)
   PIPSOLAR_TEXT_SENSOR(last_qmn, QMN)
   PIPSOLAR_TEXT_SENSOR(last_qbatcd, QBATCD)
+  PIPSOLAR_TEXT_SENSOR(last_qvfw, QVFW)
+  PIPSOLAR_TEXT_SENSOR(last_qvfw2, QVFW2)
+  PIPSOLAR_TEXT_SENSOR(last_qvfw3, QVFW3)
+  PIPSOLAR_TEXT_SENSOR(last_qid, QID)
 
   PIPSOLAR_SWITCH(output_source_priority_utility_switch, QPIRI)
   PIPSOLAR_SWITCH(output_source_priority_solar_switch, QPIRI)
