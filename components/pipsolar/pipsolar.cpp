@@ -776,7 +776,7 @@ void Pipsolar::loop() {
       case POLLING_QT: {
         ESP_LOGD(TAG, "Decode QT");
         // (YYYYMMDDHHMMSS<cr>
-        if (tmp) {
+        // if (tmp) {
           std::string tmp_buffer_ = tmp;
           std::string year_   = tmp_buffer_.substr(1, 4);
           std::string month_  = tmp_buffer_.substr(5, 2);
@@ -794,7 +794,7 @@ void Pipsolar::loop() {
             std::string time_ = hour_ + ":" + minute_ + ":" + second_;
             this->value_inverter_time_ = time_;
           }
-        }
+        // }
         if (this->last_qt_) {
           this->last_qt_->publish_state(tmp);
         }
