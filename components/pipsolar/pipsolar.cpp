@@ -449,12 +449,12 @@ void Pipsolar::loop() {
         this->state_ = STATE_IDLE;
         break;
       case POLLING_QT:
-        if (this->inverter_date_) {
-          this->inverter_date_->publish_state(value_inverter_date_);
-        }
-        if (this->inverter_time_) {
-          this->inverter_time_->publish_state(value_inverter_time_);
-        }
+        // if (this->inverter_date_) {
+        //   this->inverter_date_->publish_state(value_inverter_date_);
+        // }
+        // if (this->inverter_time_) {
+        //   this->inverter_time_->publish_state(value_inverter_time_);
+        // }
       case POLLING_QMN:
         this->state_ = STATE_IDLE;
         break;
@@ -775,25 +775,25 @@ void Pipsolar::loop() {
         break;
       case POLLING_QT: {
         ESP_LOGD(TAG, "Decode QT");
-        // (YYYYMMDDHHMMSS<cr>
-        // if (tmp) {
-          std::string tmp_buffer_ = tmp;
-          std::string year_   = tmp_buffer_.substr(1, 4);
-          std::string month_  = tmp_buffer_.substr(5, 2);
-          std::string day_    = tmp_buffer_.substr(7, 2);
-          std::string hour_   = tmp_buffer_.substr(9, 2);
-          std::string minute_ = tmp_buffer_.substr(11, 2);
-          std::string second_ = tmp_buffer_.substr(13, 2);
-          ESP_LOGD(TAG, "QT data loaded: %s => %s-%s-%s %s:%s:%s", tmp, year_.c_str(), month_.c_str(), day_.c_str(), 
-                      hour_.c_str(), minute_.c_str(), second_.c_str());
-          if (this->inverter_date_) {
-            std::string date_ = year_ + "-" + month_ + "-" + day_;
-            this->value_inverter_date_ = date_;
-          }
-          if (this->inverter_time_) {
-            std::string time_ = hour_ + ":" + minute_ + ":" + second_;
-            this->value_inverter_time_ = time_;
-          }
+        // // (YYYYMMDDHHMMSS<cr>
+        // // if (tmp) {
+        //   std::string tmp_buffer_ = tmp;
+        //   std::string year_   = tmp_buffer_.substr(1, 4);
+        //   std::string month_  = tmp_buffer_.substr(5, 2);
+        //   std::string day_    = tmp_buffer_.substr(7, 2);
+        //   std::string hour_   = tmp_buffer_.substr(9, 2);
+        //   std::string minute_ = tmp_buffer_.substr(11, 2);
+        //   std::string second_ = tmp_buffer_.substr(13, 2);
+        //   ESP_LOGD(TAG, "QT data loaded: %s => %s-%s-%s %s:%s:%s", tmp, year_.c_str(), month_.c_str(), day_.c_str(), 
+        //               hour_.c_str(), minute_.c_str(), second_.c_str());
+        //   if (this->inverter_date_) {
+        //     std::string date_ = year_ + "-" + month_ + "-" + day_;
+        //     this->value_inverter_date_ = date_;
+        //   }
+        //   if (this->inverter_time_) {
+        //     std::string time_ = hour_ + ":" + minute_ + ":" + second_;
+        //     this->value_inverter_time_ = time_;
+        //   }
         // }
         if (this->last_qt_) {
           this->last_qt_->publish_state(tmp);
