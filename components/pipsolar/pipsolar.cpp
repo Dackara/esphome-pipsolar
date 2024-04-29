@@ -449,12 +449,12 @@ void Pipsolar::loop() {
         this->state_ = STATE_IDLE;
         break;
       case POLLING_QT:
-        // if (this->inverter_date_) {
-        //   this->inverter_date_->publish_state(value_inverter_date_);
-        // }
-        // if (this->inverter_time_) {
-        //   this->inverter_time_->publish_state(value_inverter_time_);
-        // }
+        if (this->inverter_date_) {
+          this->inverter_date_->publish_state(value_inverter_date_);
+        }
+        if (this->inverter_time_) {
+          this->inverter_time_->publish_state(value_inverter_time_);
+        }
       case POLLING_QMN:
         this->state_ = STATE_IDLE;
         break;
